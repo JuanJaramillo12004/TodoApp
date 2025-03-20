@@ -1,17 +1,17 @@
-// src/components/TodoApp.jsx
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchTodos, addTodo, deleteTodo, toggleTodo, editTodo } from '../utils/todosSlice';
+import { fetchTodos, addTodo, deleteTodo, toggleTodo, editTodo, startTodosListener } from '../utils/todosSlice';
 import TodoList from './TodoList';
-import '../App.css';
+import '../assets/css/Tasks.css';
 
-function TodoApp() {
+function Todo() {
   const [text, setText] = useState('');
   const dispatch = useDispatch();
   const todos = useSelector((state) => state.todos.items);
 
   useEffect(() => {
     dispatch(fetchTodos());
+    dispatch(startTodosListener());
   }, [dispatch]);
 
   const handleAddTodo = () => {
@@ -23,9 +23,6 @@ function TodoApp() {
 
   return (
     <div className="container">
-      <header className="header">
-        <h1>Todo App</h1>
-      </header>
       <div className="input-container">
         <input
           type="text"
@@ -47,4 +44,4 @@ function TodoApp() {
   );
 }
 
-export default TodoApp;
+export default Todo;

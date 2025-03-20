@@ -1,0 +1,7 @@
+.header {
+  background-color: var(--primary-color); /* Azul suave */
+  color: var(--text-light); /* Texto blanco claro */
+  padding: 20px;
+  text-align: center;
+  box-shadow: var(--box-shadow); /* Sombra ligera */
+}
